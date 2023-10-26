@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    password: ILQCPkMPP57XrgOVfLhixa43cQGMc2yb
+    url: jdbc:postgresql://trumpet.db.elephantsql.com:5432/fleymklo
+    username: fleymklo
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+server:
+  port: 8081
+  # address: 127.0.0.1
+  # error:
+  #   whitelabel:
+  #     enabled: false
+  #     path: /erreur-utilisateur
+  #     include-exception: true
+  #     include-stacktrace: toujours
+  # tomcat:
+  #   max-threads: 200
+  #   connection-timeout: 5s
+  #   max-swallow-size: 12Mo
+  #   max-http-form-post-size: 12MB
+  # max-http-header-size: 18KB
+
+

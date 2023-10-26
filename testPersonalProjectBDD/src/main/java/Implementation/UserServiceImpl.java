@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import Repository.UserRepository;
 import entity.UserEntityDTO;
+import repository.UserRepository;
 import service.UserService;
 
 @Service
