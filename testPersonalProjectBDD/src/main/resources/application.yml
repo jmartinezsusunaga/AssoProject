@@ -8,7 +8,17 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
-
+  security:
+    user:
+      name: foo
+      password: foo
+#logging:
+  #level:
+    #root: DEBUG
+    #org.springframework.web: DEBUG
+    #guru.springframework.controllers: DEBUG
+    #org.hibernate: DEBUG
+    #org: INFO
 server:
   port: 8081
   # address: 127.0.0.1
