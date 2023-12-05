@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entity.UserEntityDTO;
+import entity.UtilisateurEntityDTO;
 import service.UserService;
 
 @RestController
@@ -23,26 +23,26 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<UserEntityDTO> getAllUser(){
-        List<UserEntityDTO> test = userService.getAllById();
+    public List<UtilisateurEntityDTO> getAllUser(){
+        List<UtilisateurEntityDTO> test = userService.getAllById();
         System.out.println("users : "+test);
         return test;
     }
     @GetMapping("/{userId}")
-    public UserEntityDTO getUserById(@PathVariable Integer id){
-        UserEntityDTO user = userService.getById(id); 
+    public UtilisateurEntityDTO getUserById(@PathVariable Integer id){
+        UtilisateurEntityDTO user = userService.getById(id); 
         System.out.println("userId : "+id+" : user : "+user);
         return user;
     }
 
     @PostMapping
-    public String saveUser(@RequestBody UserEntityDTO user){
+    public String saveUser(@RequestBody UtilisateurEntityDTO user){
         userService.saveById(user); 
         return "user saved successfuly.";
     }
 
     @PutMapping("/{userId}")
-    public String updateUser(@RequestBody UserEntityDTO user, @PathVariable Integer id){
+    public String updateUser(@RequestBody UtilisateurEntityDTO user, @PathVariable Integer id){
         userService.updateById(user, id); getAllUser(); 
         return "user updated successfully.";
     }

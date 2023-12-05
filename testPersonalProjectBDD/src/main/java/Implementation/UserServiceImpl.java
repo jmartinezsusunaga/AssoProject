@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import entity.UserEntityDTO;
+import entity.UtilisateurEntityDTO;
 import repository.UserRepository;
 import service.UserService;
 
@@ -20,8 +20,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserEntityDTO getById(Integer id) {
-		 Optional<UserEntityDTO> userOpt = userRepository.findById(id);
+	public UtilisateurEntityDTO getById(Integer id) {
+		 Optional<UtilisateurEntityDTO> userOpt = userRepository.findById(id);
 	        if(userOpt.isPresent())
 	            return userOpt.get();
 	        else
@@ -29,22 +29,22 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserEntityDTO> getAllById() {
+	public List<UtilisateurEntityDTO> getAllById() {
 		  return userRepository.findAll();		
 	}
 
 	@Override
-	public void saveById(UserEntityDTO user) {
-		UserEntityDTO userDetail = userRepository.save(user);
+	public void saveById(UtilisateurEntityDTO user) {
+		UtilisateurEntityDTO userDetail = userRepository.save(user);
         System.out.println("user saved to db with userId : " + userDetail.getId_test());
 		
 	}
 
 	@Override
-	public void updateById(UserEntityDTO user, Integer userId) {
-		Optional<UserEntityDTO> userDetailOpt = userRepository.findById(userId);
+	public void updateById(UtilisateurEntityDTO user, Integer userId) {
+		Optional<UtilisateurEntityDTO> userDetailOpt = userRepository.findById(userId);
         if(userDetailOpt.isPresent()){
-        	UserEntityDTO userDetail = userDetailOpt.get();
+        	UtilisateurEntityDTO userDetail = userDetailOpt.get();
             if(user.getTes_name_t() != null || user.getTes_name_t().isEmpty())
                 userDetail.setTes_name_t(user.getTes_name_t()); 
             if(user.getTest_date_t() != null)

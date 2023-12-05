@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name =  "test_2", schema = "public")
-public class membreEntityDTO {
+public class EvenementsEntityDTO {
 
 	@Id
 	private Integer id_evenement_mre;
@@ -17,13 +17,13 @@ public class membreEntityDTO {
 	@Column
 	private String membre;
 
-	public membreEntityDTO(Integer id_evenement_mre, String membre) {
+	public EvenementsEntityDTO(Integer id_evenement_mre, String membre) {
 		super();
 		this.id_evenement_mre = id_evenement_mre;
 		this.membre = membre;
 	}
 	
-	public membreEntityDTO() {
+	public EvenementsEntityDTO() {
 		
 	}
 

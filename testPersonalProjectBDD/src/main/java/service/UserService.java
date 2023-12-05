@@ -2,19 +2,19 @@ package service;
 
 import java.util.List;
 
-import entity.UserEntityDTO;
+import entity.UtilisateurEntityDTO;
 
 public interface UserService {
 	
 	void deleteById(Integer id);
 	
-	UserEntityDTO getById(Integer id);
+	UtilisateurEntityDTO getById(Integer id);
 	
-	List<UserEntityDTO> getAllById();
+	List<UtilisateurEntityDTO> getAllById();
 	
-	void saveById(UserEntityDTO user);
+	void saveById(UtilisateurEntityDTO user);
 	
-	void updateById(UserEntityDTO user, Integer userId);
+	void updateById(UtilisateurEntityDTO user, Integer userId);
 	
 
 }
