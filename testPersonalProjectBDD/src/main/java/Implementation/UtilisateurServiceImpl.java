@@ -11,7 +11,7 @@ import repository.UserRepository;
 import service.UserService;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UtilisateurServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void saveById(UtilisateurEntityDTO user) {
 		UtilisateurEntityDTO userDetail = userRepository.save(user);
-        System.out.println("user saved to db with userId : " + userDetail.getId_test());
+        System.out.println("user saved to db with userId : " + userDetail.getId_uti());
 		
 	}
 
@@ -45,10 +45,10 @@ public class UserServiceImpl implements UserService {
 		Optional<UtilisateurEntityDTO> userDetailOpt = userRepository.findById(userId);
         if(userDetailOpt.isPresent()){
         	UtilisateurEntityDTO userDetail = userDetailOpt.get();
-            if(user.getTes_name_t() != null || user.getTes_name_t().isEmpty())
-                userDetail.setTes_name_t(user.getTes_name_t()); 
-            if(user.getTest_date_t() != null)
-                userDetail.setTest_date_t(user.getTest_date_t());
+            if(user.getNom_uti() != null || user.getNom_uti().isEmpty())
+                userDetail.setNom_uti(user.getNom_uti()); 
+            if(user.getDate_naissance_uti() != null)
+                userDetail.setDate_naissance_uti(user.getDate_naissance_uti());
             userRepository.save(userDetail);
         }else{
             throw new RuntimeException("user not found.");

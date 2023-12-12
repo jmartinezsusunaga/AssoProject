@@ -5,10 +5,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 import java.sql.Date;
+import java.util.List;
 
+/*Pour chaque caractère en Java on va avoir besoin deux octes en BDD, c'est pour cela que les length's sont égales à la moitié*/
+/* Un schema c'est une route logique qui sert à diviser plans de BDD, par exemple, tables sur un shema utilisateur et administrteur
+ * */
 @Entity
 @Table(name =  "evenements", schema = "public")
 public class EvenementsEntityDTO {
@@ -17,10 +22,10 @@ public class EvenementsEntityDTO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id_ev;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 50)
 	private String nom_ev;
 	
-	@Column(nullable = false, unique = true, length = 100)
+	@Column(nullable = false, unique = true, length = 50)
 	private String lieu_ev;
 	
 	@Column(nullable = false, unique = true)
@@ -29,18 +34,18 @@ public class EvenementsEntityDTO {
 	@Column(nullable = false)
 	private Integer capacite_event_ev;
 	
-	@Column(length = 1000)
+	@Column(length = 500)
 	private String visuel_facebook_ev;
 	
-	@Column(length = 1000)
+	@Column(length = 500)
 	private String visuel_insta_poste_ev;
 	
-	@Column(length = 1000)
+	@Column(length = 500)
 	private String visuel_insta_story_ev;
 
-	public EvenementsEntityDTO(Integer id_evenement_mre) {
+	public EvenementsEntityDTO(Integer id_ev) {
 		super();
-		this.id_ev = id_evenement_mre;
+		this.id_ev = id_ev;
 	}
 	
 	public EvenementsEntityDTO() {
@@ -107,6 +112,8 @@ public class EvenementsEntityDTO {
 		this.visuel_insta_story_ev = visuel_insta_story_ev;
 	}
 	
+	 @ManyToMany(mappedBy = "events")
+	    private List<UtilisateurEntityDTO> utilisateur;
 	
 	
 }

@@ -1,11 +1,16 @@
 package entity;
 
 import java.sql.Date;
+import java.util.Collection;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -21,47 +26,55 @@ public class UtilisateurEntityDTO {
 	@Column(nullable = false)
 	private Date date_naissance_uti;
 	
-	@Column(nullable = false, unique = true, length = 1000)
+	@Column(nullable = false, unique = true, length = 128)
 	private String mdp_uti;
 	
-	@Column(nullable = false,  length = 100)
+	@Column(nullable = false,  length = 50)
 	private String nom_uti;
 	
-	@Column(nullable = false, length = 1000)
+	@Column(nullable = false, length = 50)
 	private String prenom_uti;
 	
-	@Column(nullable = false, unique = true, length = 100)
+	@Column(nullable = false, unique = true, length = 50)
 	private String mail_uti;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 25)
 	private String droits_uti;
 	
-	@Column(nullable = false, unique = true, length = 100)
+	@Column(nullable = false, unique = true, length = 25)
 	private String personnalite_juridique_uti;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 25)
 	private String nom_artistique_uti;
 	
-	@Column(length = 1000)
+	@Column(length = 500)
 	private String photo_uti;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 25)
 	private String type_poste_association_uti;
 	
-	@Column(length = 1000)
+	@Column(length = 500)
 	private String bio_art;
 	
-	@Column(length = 1000)
+	@Column(length = 500)
 	private String lien_instagram_art;
-	
-	@Column(length = 1000)
+
+	@Column(length = 500)
 	private String lien_soundCloud_art;
+
+	@Column(length = 500)
+	private String lien_facebook_art;
+
+	@Column(length = 500)
+	private String lien_spotify_art;
 	
-	@Column(length = 1000)
+	@Column(length = 500)
 	private String lien_youtube_art;
 	
-	@Column(length = 1000)
+	@Column(length = 500)
 	private String logo_ass_art;
+	
+	private Date heure_passage_ue;
 	
 	UtilisateurEntityDTO(Integer id_uti){
 			super();
@@ -76,7 +89,7 @@ public class UtilisateurEntityDTO {
 		return id_uti;
 	}
 
-	public void setId_uti(Integer id_uti) {
+	public void setId_uti(Integer id_uti) { 
 		this.id_uti = id_uti;
 	}
 
@@ -215,7 +228,29 @@ public class UtilisateurEntityDTO {
 	public void setLogo_ass_art(String logo_ass_art) {
 		this.logo_ass_art = logo_ass_art;
 	}
-
 	
+	public void setLien_facebook_art(String lien_facebook_art) {
+		this.lien_facebook_art = lien_facebook_art;
+	}
+
+	public String getLien_spotify_art() {
+		return lien_spotify_art;
+	}
+
+	public void setLien_spotify_art(String lien_spotify_art) {
+		this.lien_spotify_art = lien_spotify_art;
+	}
+
+	/*Many-to-Many Relationship with spring data rest*/
+	
+	public String getLien_facebook_art() {
+		return lien_facebook_art;
+	}
+
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Utilisateur_evenemments", 
+      joinColumns = @JoinColumn(name = "id_uti", referencedColumnName = "id_uti"), 
+      inverseJoinColumns = @JoinColumn(name = "id_ev", referencedColumnName = "id_ev"))
+	private Collection<EvenementsEntityDTO> events;
 	
 }
