@@ -12,44 +12,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entity.UtilisateurEntityDTO;
-import service.UserService;
+import entity.UtilisateurEntity;
+import service.UtilisateurService;
 
 @RestController
 @RequestMapping("/test")
 public class UserController {
 
 	@Autowired
-    private UserService userService;
+    private UtilisateurService utilisateurService;
 
     @GetMapping
-    public List<UtilisateurEntityDTO> getAllUser(){
-        List<UtilisateurEntityDTO> test = userService.getAllById();
+    public List<UtilisateurEntity> getAllUser(){
+        List<UtilisateurEntity> test = utilisateurService.getAllById();
         System.out.println("users : "+test);
         return test;
     }
     @GetMapping("/{userId}")
-    public UtilisateurEntityDTO getUserById(@PathVariable Integer id){
-        UtilisateurEntityDTO user = userService.getById(id); 
+    public UtilisateurEntity getUserById(@PathVariable Integer id){
+        UtilisateurEntity user = utilisateurService.getById(id); 
         System.out.println("userId : "+id+" : user : "+user);
         return user;
     }
 
     @PostMapping
-    public String saveUser(@RequestBody UtilisateurEntityDTO user){
-        userService.saveById(user); 
+    public String saveUser(@RequestBody UtilisateurEntity user){
+        utilisateurService.saveById(user); 
         return "user saved successfuly.";
     }
 
     @PutMapping("/{userId}")
-    public String updateUser(@RequestBody UtilisateurEntityDTO user, @PathVariable Integer id){
-        userService.updateById(user, id); getAllUser(); 
+    public String updateUser(@RequestBody UtilisateurEntity user, @PathVariable Integer id){
+        utilisateurService.updateById(user, id); getAllUser(); 
         return "user updated successfully.";
     }
 
     @DeleteMapping("/{userId}")
     public String deleteUseryId(@PathVariable Integer id){
-        userService.deleteById(id);
+        utilisateurService.deleteById(id);
         return "user deleted successfully.";
     }
 

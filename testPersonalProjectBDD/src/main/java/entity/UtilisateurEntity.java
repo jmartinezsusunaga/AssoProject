@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 /*le Schema name la plus part de fois est public comme valeur*/
 @Entity
 @Table(name =  "utilisateur", schema = "public")
-public class UtilisateurEntityDTO {
+public class UtilisateurEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -74,14 +74,12 @@ public class UtilisateurEntityDTO {
 	@Column(length = 500)
 	private String logo_ass_art;
 	
-	private Date heure_passage_ue;
-	
-	UtilisateurEntityDTO(Integer id_uti){
+	UtilisateurEntity(Integer id_uti){
 			super();
 			this.id_uti = id_uti;
 		}
 	
-	UtilisateurEntityDTO(){
+	UtilisateurEntity(){
 		
 	}
 
@@ -181,21 +179,6 @@ public class UtilisateurEntityDTO {
 		this.bio_art = bio_art;
 	}
 
-	public String getInstagram_art() {
-		return lien_instagram_art;
-	}
-
-	public void setInstagram_art(String instagram_art) {
-		this.lien_instagram_art = instagram_art;
-	}
-
-	public String getSoundCloud_art() {
-		return lien_soundCloud_art;
-	}
-
-	public void setSoundCloud_art(String soundCloud_art) {
-		this.lien_soundCloud_art = soundCloud_art;
-	}
 
 	public String getLien_instagram_art() {
 		return lien_instagram_art;
@@ -229,6 +212,10 @@ public class UtilisateurEntityDTO {
 		this.logo_ass_art = logo_ass_art;
 	}
 	
+	public String getLien_facebook_art() {
+		return this.lien_facebook_art;
+	}
+	
 	public void setLien_facebook_art(String lien_facebook_art) {
 		this.lien_facebook_art = lien_facebook_art;
 	}
@@ -241,7 +228,7 @@ public class UtilisateurEntityDTO {
 		this.lien_spotify_art = lien_spotify_art;
 	}
 
-	/*Many-to-Many Relationship with spring data rest*/
+	/*Many-to-Many Relationship with spring data rest
 	
 	public String getLien_facebook_art() {
 		return lien_facebook_art;
@@ -251,6 +238,6 @@ public class UtilisateurEntityDTO {
     @JoinTable(name = "Utilisateur_evenemments", 
       joinColumns = @JoinColumn(name = "id_uti", referencedColumnName = "id_uti"), 
       inverseJoinColumns = @JoinColumn(name = "id_ev", referencedColumnName = "id_ev"))
-	private Collection<EvenementsEntityDTO> events;
-	
+	private Collection<EvenementsEntity> events;
+	*/
 }

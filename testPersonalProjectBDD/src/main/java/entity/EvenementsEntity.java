@@ -16,7 +16,7 @@ import java.util.List;
  * */
 @Entity
 @Table(name =  "evenements", schema = "public")
-public class EvenementsEntityDTO {
+public class EvenementsEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,12 +43,12 @@ public class EvenementsEntityDTO {
 	@Column(length = 500)
 	private String visuel_insta_story_ev;
 
-	public EvenementsEntityDTO(Integer id_ev) {
+	public EvenementsEntity(Integer id_ev) {
 		super();
 		this.id_ev = id_ev;
 	}
 	
-	public EvenementsEntityDTO() {
+	public EvenementsEntity() {
 		
 	}
 
@@ -112,8 +112,7 @@ public class EvenementsEntityDTO {
 		this.visuel_insta_story_ev = visuel_insta_story_ev;
 	}
 	
-	 @ManyToMany(mappedBy = "events")
-	    private List<UtilisateurEntityDTO> utilisateur;
-	
-	
+	 @ManyToMany(mappedBy = "utilisateurEvents")
+	    private List<UtilisateurEvenementsEntity> utilisateurEvents;
+		
 }
