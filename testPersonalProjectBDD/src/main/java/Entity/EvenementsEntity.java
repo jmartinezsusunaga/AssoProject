@@ -1,4 +1,4 @@
-package entity;
+@package Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -112,7 +112,9 @@ public class EvenementsEntity {
 		this.visuel_insta_story_ev = visuel_insta_story_ev;
 	}
 	
-	 @ManyToMany(mappedBy = "utilisateurEvents")
-	    private List<UtilisateurEvenementsEntity> utilisateurEvents;
+	/* @ManyToMany(mappedBy = "utilisateurEvents")
+	    private List<UtilisateurEvenementsEntity> utilisateurEvents;*/
+	 
+		/*TODO : ajouter les relations entre mes class Java Evenement-utilisateruEvenement*/
 		
 }

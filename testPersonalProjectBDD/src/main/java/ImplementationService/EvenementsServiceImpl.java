@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import entity.EvenementsEntity;
-import entity.UtilisateurEntity;
+import Entity.EvenementsEntity;
+import Entity.UtilisateurEntity;
 import repository.EvenementsRepository;
 import repository.UtilisateurRepository;
 import service.UtilisateurService;

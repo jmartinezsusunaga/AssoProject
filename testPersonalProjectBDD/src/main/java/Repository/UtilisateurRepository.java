@@ -1,8 +1,8 @@
-package repository;
+package Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import entity.UtilisateurEntity;
+import Entity.UtilisateurEntity;
 
 public interface UtilisateurRepository extends JpaRepository<UtilisateurEntity, Integer>{
 

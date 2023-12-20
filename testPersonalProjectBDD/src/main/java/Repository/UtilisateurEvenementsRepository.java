@@ -1,10 +1,10 @@
-package repository;
+package Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import entity.UtilisateurEntity;
-import entity.UtilisateurEvenementsEntity;
-import entity.UtilisateurEvenementsPKId;
+import Entity.UtilisateurEntity;
+import Entity.UtilisateurEvenementsEntity;
+import Entity.UtilisateurEvenementsPKId;
 
 public interface UtilisateurEvenementsRepository extends JpaRepository<UtilisateurEvenementsEntity, UtilisateurEvenementsPKId>{
 	

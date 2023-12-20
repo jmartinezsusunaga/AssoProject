@@ -1,4 +1,4 @@
-package entity;
+package Entity;
 
 import java.sql.Date;
 import java.util.Collection;
@@ -240,4 +240,6 @@ public class UtilisateurEntity {
       inverseJoinColumns = @JoinColumn(name = "id_ev", referencedColumnName = "id_ev"))
 	private Collection<EvenementsEntity> events;
 	*/
+	
+	/*TODO : ajouter les relations entre mes class Java Utilisateur-utilisateruEvenement*/
 }

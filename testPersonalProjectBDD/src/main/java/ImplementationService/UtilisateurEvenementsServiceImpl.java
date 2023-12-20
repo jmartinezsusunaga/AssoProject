@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entity.UtilisateurEntity;
-import entity.UtilisateurEvenementsEntity;
+import Entity.UtilisateurEntity;
+import Entity.UtilisateurEvenementsEntity;
 import repository.UtilisateurEvenementsRepository;
 import repository.UtilisateurRepository;
 import service.UtilisateurEvenementsService;

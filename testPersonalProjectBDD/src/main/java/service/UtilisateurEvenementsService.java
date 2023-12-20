@@ -2,8 +2,8 @@ package service;
 
 import java.util.List;
 
-import entity.UtilisateurEntity;
-import entity.UtilisateurEvenementsEntity;
+import Entity.UtilisateurEntity;
+import Entity.UtilisateurEvenementsEntity;
 
 
 public interface UtilisateurEvenementsService {

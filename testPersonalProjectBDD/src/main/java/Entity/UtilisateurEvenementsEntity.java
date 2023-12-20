@@ -1,6 +1,7 @@
-package entity;
+package Entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,14 +20,13 @@ import java.util.List;
 @Table(name =  "evenements", schema = "public")
 /* Je crée une class qui va gerer mes clés composées "UtilisateurEvenementsPKId"
  * */
-@IdClass(UtilisateurEvenementsPKId.class)
+//@IdClass(UtilisateurEvenementsPKId.class)
 public class UtilisateurEvenementsEntity {
 
-	@Id
-	private Integer id_utilisateur_ue;
-	
-	@Id
-	private Integer id_evenement_ue;
+	/*TODO : Clarifier le type de recherche (La recherche ensemble se fait avec @EmbeddedId 
+	 * et @Id c'est individuelle de chaque clé )*/
+	@EmbeddedId
+	private UtilisateurEvenementsPKId id ;
 	
 	@Column(nullable = false, unique = true, length = 50)
 	private Date heure_passage_ue;
@@ -38,7 +38,7 @@ public class UtilisateurEvenementsEntity {
 		
 	}
 
-	public Integer getId_utilisateur_ue() {
+	/*public Integer getId_utilisateur_ue() {
 		return id_utilisateur_ue;
 	}
 
@@ -52,7 +52,7 @@ public class UtilisateurEvenementsEntity {
 
 	public void setId_evenement_ue(Integer id_evenement_ue) {
 		this.id_evenement_ue = id_evenement_ue;
-	}
+	}*/
 
 	public Date getHeure_passage_ue() {
 		return heure_passage_ue;
@@ -70,6 +70,8 @@ public class UtilisateurEvenementsEntity {
 		this.visuel_artiste_ue = visuel_artiste_ue;
 	}
 
-	
+	/*TODO : ajouter les relations entre mes class Java Evenement-utilisateruEvenement*/
+	/*TODO : ajouter les relations entre mes class Java Utilisateur-utilisateruEvenement*/
+
 	
 }

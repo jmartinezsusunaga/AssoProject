@@ -2,7 +2,7 @@ package service;
 
 import java.util.List;
 
-import entity.UtilisateurEntity;
+import Entity.UtilisateurEntity;
 
 public interface UtilisateurService {
 	

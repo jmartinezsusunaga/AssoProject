@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import entity.UtilisateurEntity;
+import Entity.UtilisateurEntity;
 import repository.UtilisateurRepository;
 import service.UtilisateurService;
 
@@ -16,10 +16,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	@Autowired
 	private UtilisateurRepository utilisateurRepository;
 	@Override
-	public void deleteUserById(Integer id) {
+	public void deleteUserById(Integer id) throws RuntimeException{
 		 UtilisateurEntity userOpt = getUserById(id);
 		 if(userOpt != null)
-			 utilisateurRepository.deleteById(id);
+			 UtilisateurRepository.deleteById(id);
 	}
 
 	/*cette méthode est utilisée pour en plus de chercher l'utilisateur, connaitre l'existance de l'user*/

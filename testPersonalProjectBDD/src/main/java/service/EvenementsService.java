@@ -2,7 +2,7 @@ package service;
 
 import java.util.List;
 
-import entity.EvenementsEntity;
+import Entity.EvenementsEntity;
 
 public interface EvenementsService {
 	
