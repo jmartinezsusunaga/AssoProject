@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Entity.UtilisateurEntity;
-import Entity.UtilisateurEvenementsEntity;
+import entity.UtilisateurEntity;
+import entity.UtilisateurEvenementsEntity;
 import repository.UtilisateurEvenementsRepository;
 import repository.UtilisateurRepository;
 import service.UtilisateurEvenementsService;
@@ -31,8 +31,8 @@ public class UtilisateurEvenementsServiceImpl implements UtilisateurEvenementsSe
 	@GetMapping
 	public void save(UtilisateurEvenementsEntity userEvents) {
 		UtilisateurEvenementsEntity userEventsdetail = utilisateurEventsRepository.save(userEvents);
-		System.out.print("User saved event id: " + userEventsdetail.getId_evenement_ue() + "user id : " + userEventsdetail.getId_utilisateur_ue());
 	}
+	
 	@Override
 	@GetMapping
 	public List<UtilisateurEvenementsEntity> getAll(){

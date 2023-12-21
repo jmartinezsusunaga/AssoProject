@@ -1,4 +1,4 @@
-@package Entity;
+package entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +16,7 @@ import java.util.List;
  * */
 @Entity
 @Table(name =  "evenements", schema = "public")
-public class EvenementsEntity {
+public class EvenementEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,12 +43,12 @@ public class EvenementsEntity {
 	@Column(length = 500)
 	private String visuel_insta_story_ev;
 
-	public EvenementsEntity(Integer id_ev) {
+	public EvenementEntity(Integer id_ev) {
 		super();
 		this.id_ev = id_ev;
 	}
 	
-	public EvenementsEntity() {
+	public EvenementEntity() {
 		
 	}
 
@@ -62,6 +62,10 @@ public class EvenementsEntity {
 
 	public String getNom_ev() {
 		return nom_ev; 
+	}
+	
+	public void setNom_ev(String nom_ev) {
+		this.nom_ev = nom_ev;
 	}
 
 	public String getLieu_ev() {

@@ -2,13 +2,13 @@ package service;
 
 import java.util.List;
 
-import Entity.UtilisateurEntity;
+import entity.UtilisateurEntity;
 
 public interface UtilisateurService {
 	
-	void deleteUserById(Integer id);
+	void deleteUserById(Integer id) throws RuntimeException;
 	
-	UtilisateurEntity getUserById(Integer id);
+	UtilisateurEntity getUserById(Integer id) throws RuntimeException;
 	
 	List<UtilisateurEntity> getAllUsers();
 	

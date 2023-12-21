@@ -2,19 +2,19 @@ package service;
 
 import java.util.List;
 
-import Entity.EvenementsEntity;
+import entity.EvenementEntity;
 
 public interface EvenementsService {
 	
-	void deleteEventsById(Integer id);
+	void deleteEventsById(Integer id) throws RuntimeException;
 	
-	EvenementsEntity getEventById(Integer id);
+	EvenementEntity getEventById(Integer id) throws RuntimeException;
 	
-	List<EvenementsEntity> getAllEvents();
+	List<EvenementEntity> getAllEvents();
 	
-	void saveEvent(EvenementsEntity event);
+	void saveEvent(EvenementEntity event);
 	
-	void updateEvent(EvenementsEntity event);
+	void updateEvent(EvenementEntity event);
 	
 
 }
