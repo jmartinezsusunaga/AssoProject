@@ -16,5 +16,6 @@ public interface UtilisateurService {
 	
 	void updateUser(UtilisateurEntity user);
 	
+	/*TODO :  void deleteByIdIn(List<TokenId> id); ajouter une lsite pour effacer plusieurs id*/
 
 }

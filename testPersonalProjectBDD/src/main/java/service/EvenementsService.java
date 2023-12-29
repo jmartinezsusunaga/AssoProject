@@ -16,5 +16,5 @@ public interface EvenementsService {
 	
 	void updateEvent(EvenementEntity event);
 	
-
+	/*TODO :  void deleteByIdIn(List<TokenId> id); ajouter une lsite pour effacer plusieurs id*/
 }

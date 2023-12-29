@@ -16,7 +16,7 @@ import entity.UtilisateurEntity;
 import service.UtilisateurService;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/utilisateur")
 public class UtilisateurController {
 
 	@Autowired

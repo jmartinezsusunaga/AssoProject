@@ -2,12 +2,14 @@ package entity;
 
 import java.sql.Date;
 import java.util.Collection;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.CascadeType;
@@ -227,6 +229,9 @@ public class UtilisateurEntity {
 	public void setLien_spotify_art(String lien_spotify_art) {
 		this.lien_spotify_art = lien_spotify_art;
 	}
+	
+	@ManyToOne(targetEntity = UtilisateurEvenementsEntity.class)
+	 private List<UtilisateurEvenementsEntity> utilisateurEvents;
 
 	/*Many-to-Many Relationship with spring data rest
 	
