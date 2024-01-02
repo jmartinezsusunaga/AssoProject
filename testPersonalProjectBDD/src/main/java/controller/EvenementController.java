@@ -40,7 +40,7 @@ public class EvenementController {
         return "event saved successfuly.";
     }
 
-    @PutMapping("/{userId}")
+    @PutMapping("/{userId}") /*Le mapping est correct ?*/
     public String updateEvent(@RequestBody EvenementEntity event, @PathVariable Integer id){
         evenementService.updateEvent(event);
         return "user updated successfully.";

@@ -22,12 +22,12 @@ spring:
 server:
   port: 8081
   # address: 127.0.0.1
-  # error:
-  #   whitelabel:
-  #     enabled: false
+  error:
+     whitelabel:
+       enabled: false
   #     path: /erreur-utilisateur
-  #     include-exception: true
-  #     include-stacktrace: toujours
+       include-exception: true
+       include-stacktrace: always
   # tomcat:
   #   max-threads: 200
   #   connection-timeout: 5s
