@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.CascadeType;
@@ -230,7 +231,7 @@ public class UtilisateurEntity {
 		this.lien_spotify_art = lien_spotify_art;
 	}
 	
-	@ManyToOne(targetEntity = UtilisateurEvenementsEntity.class)
+	@OneToMany(targetEntity = UtilisateurEvenementsEntity.class)
 	 private List<UtilisateurEvenementsEntity> utilisateurEvents;
 
 	/*Many-to-Many Relationship with spring data rest
@@ -239,7 +240,7 @@ public class UtilisateurEntity {
 		return lien_facebook_art;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@oneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Utilisateur_evenemments", 
       joinColumns = @JoinColumn(name = "id_uti", referencedColumnName = "id_uti"), 
       inverseJoinColumns = @JoinColumn(name = "id_ev", referencedColumnName = "id_ev"))

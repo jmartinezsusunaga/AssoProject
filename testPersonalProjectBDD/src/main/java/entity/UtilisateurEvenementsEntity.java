@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -21,7 +22,7 @@ import java.util.Set;
 /* Un schema c'est une route logique qui sert à diviser plans de BDD, par exemple, tables sur un shema utilisateur et administrteur
  * */
 @Entity
-@Table(name =  "evenements", schema = "public")
+@Table(name =  "utilisateur_evenemments", schema = "public")
 /* Je crée une class qui va gerer mes clés composées "UtilisateurEvenementsPKId"
  * */
 //@IdClass(UtilisateurEvenementsPKId.class)
@@ -67,18 +68,15 @@ public class UtilisateurEvenementsEntity {
 		this.visuel_artiste_ue = visuel_artiste_ue;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "EvenementEntity")
-	private List<EvenementEntity> evenementEntity;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "UtilisateurEntity")
-	private List<UtilisateurEntity> utilisateurEntity;
-	
-	//private Set<UtilisateurEntity, EvenementEntity> events;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private EvenementEntity evenementEntity;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private UtilisateurEntity utilisateurEntity;
 	
 
 	/*DONE : ajouter les relations entre mes class Java Evenement-utilisateruEvenement*/
 	/*DONE : ajouter les relations entre mes class Java Utilisateur-utilisateruEvenement*/
-	/*TODO : creer une liste qui stocke les id des autres tables*/
-	/*TODO: changer les integers pour long*/
+	/*TODO: changer les integers pour long pas sur la BDD juste au niveau de java*/
 
 	
 }

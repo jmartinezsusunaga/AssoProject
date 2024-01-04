@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import java.sql.Date;
@@ -116,7 +117,7 @@ public class EvenementEntity {
 		this.visuel_insta_story_ev = visuel_insta_story_ev;
 	}
 	
-	 @ManyToOne(targetEntity = UtilisateurEvenementsEntity.class)
+	 @OneToMany(targetEntity = UtilisateurEvenementsEntity.class)
 	 private List<UtilisateurEvenementsEntity> utilisateurEvents;
 	 
 		/*TODO : ajouter les relations entre mes class Java Evenement-utilisateruEvenement*/

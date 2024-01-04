@@ -27,29 +27,30 @@ public class EvenementController {
         List<EvenementEntity> events = evenementService.getAllEvents();
         return events;
     }
-    @GetMapping("/{id_ev}") /*Il faut ajouter */
+    @GetMapping("/{id}") /*Il faut ajouter */
     public EvenementEntity getEventById(@PathVariable Integer id){
         EvenementEntity event = evenementService.getEventById(id); 
         System.out.println("userId : "+id+" : user : "+event);
         return event;
     }
 
-    @PostMapping
+    @PostMapping()
     public String saveUser(@RequestBody EvenementEntity event){
         evenementService.saveEvent(event); 
         return "event saved successfuly.";
     }
 
-    @PutMapping("/{userId}") /*Le mapping est correct ?*/
-    public String updateEvent(@RequestBody EvenementEntity event, @PathVariable Integer id){
+    @PutMapping("/{id}") /*Le mapping est correct ?*/
+    public String updateEvent(@RequestBody EvenementEntity event, @PathVariable Integer id){ /*TODO: pas besoin d'id - PRECISER LE NOM DE L'ATTRIBUE */
         evenementService.updateEvent(event);
         return "user updated successfully.";
     }
 
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("/{id}")
     public String deleteEventsById(@PathVariable Integer id){
         evenementService.deleteEventsById(id);
         return "event deleted successfully.";
     }
-
+/*TODO : tester avec postMan
+ * https://howtodoinjava.com/spring-mvc/controller-getmapping-postmapping/*/
 }
